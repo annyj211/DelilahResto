@@ -1,8 +1,8 @@
 # Delilah Restó
-# Este es un proyecto desarrollado para el curso de Desarrollo Web FullStack de Acámica. Es un servicio de Backend - API REST con NodeJS y base de dátos MySQL
-# 1.Descargar el proyecto e instalar las dependencias para poder ejecutarlo. (Comando npm i)
-# 2.Ejecutar el archivo sql en MySQL Workbench para crear y registrar las tablas de la BD con datos 
-# 3.
+Este es un proyecto desarrollado para el curso de Desarrollo Web FullStack de Acámica. Es un servicio de Backend - API REST con NodeJS y base de dátos MySQL
+1.Descargar el proyecto e instalar las dependencias para poder ejecutarlo. (Comando npm i)
+2.Ejecutar el archivo sql en MySQL Workbench para crear y registrar las tablas de la BD con datos 
+3.
 #
 #
 #
