@@ -1,5 +1,70 @@
 # Delilah Restó
-Este es un proyecto desarrollado para el curso de Desarrollo Web FullStack de Acámica. Es un servicio de Backend - API REST con NodeJS y base de dátos MySQL
+Este es un proyecto desarrollado para el curso de Desarrollo Web FullStack de Acámica. Es un servicio de Backend - API REST con NodeJS y base de dátos MySQL. 
+
+## Requisitos
+
+Para el correcto funcionamiento del servidor es necesario contar con:
+
+    - Git.
+    - MySQL.
+    - NodeJS.    
+    - Postman (Para realizar las pruebas).
+
+## Copia local del repositorio
+
+Se debera clonar el repositorio en una ventana de comandos en el equipo local ejecutando el siguiente comando:
+
+```
+git clone https://github.com/annyj211/DelilahResto.git
+```
+
+## Base de datos 
+
+Bajar el archivo db.sql y ejecutarlo en el motor de base de datos MySQL Workbench.        
+
+## Instalación
+
+Para instalar las dependencias necesarias usamos, en la ruta del archivo package.json:
+
+```
+npm install
+```
+Al ejecutar este comando se instalaran las siguientes librerias
+
+- "express": "^4.17.1",
+- "jsonwebtoken": "^8.5.1",
+- "mysql2": "^2.1.0",
+- "sequelize": "^6.3.5",
+- "swagger-jsdoc": "^4.3.0",
+- "swagger-ui-express": "^4.1.4"
+
+## Ejecutar el proyecto
+
+En el archivo data_base.js se debe configurar los parametros de conexión a la base de datos.
+
+Una vez instaladas todas las dependencias y que ya existe la base de datos ejecutar el siguiente comando para iniciar el servidor Express en el puerto 3010:
+
+```
+node app.js
+```
+       
+## End points
+
+- Login http://localhost:3010/login
+- Orders admin http://localhost:3010/orders
+- Productos http://localhost:3010/productos
+- Usuario http://localhost:3010/usuarios
+- Ordenes usuarios http://localhost:3010/ordenes 
+- Status http://localhost:3010/status
+- Metodos de pago http://localhost:3010/metodospago
+
+## Postman
+
+En la ruta Postman se encuentra la colección de peticiones para consumir los servicios del proyecto.
+
+
+
+
 1.Descargar el proyecto e instalar las dependencias para poder ejecutarlo. (Comando npm i)
 2.Ejecutar el archivo sql en MySQL Workbench para crear y registrar las tablas de la BD con datos 
 3.
