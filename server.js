@@ -14,9 +14,9 @@ server.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
-
+//Conexion a la BD
 let db = new Sequelize ( //db database o base de datos
-    "mysql://root:220713@localhost:3306/delilahresto" //se creo la cadena de conexion
+    "mysql://root:220713@localhost:3306/delilahresto" //se crea la cadena de conexion
 );
 
 async function querySelector(query, selectQ = false, replacements = {}) {
@@ -138,7 +138,7 @@ async function login(req, res) {
     }
 }
 // Endpoint para loguear un usuario
-server.post('/users/signin', login);
+server.post("/users/signin", login);
 
 //middelware para validar que sea un administrador
 function validateAdmin (req, res, next){
@@ -653,8 +653,6 @@ server.get ("/methodpay",verifyToken,validateAdmin,(req, res, next)=>{
         res.json({message: error})
     })
 })
-
-
 
 //Codigo para servidor express y conexion a BD 
 server.listen (3000, ()=>{
