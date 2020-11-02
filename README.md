@@ -29,7 +29,7 @@ Bajar el archivo delilahresto.sql y ejecutarlo en el motor de base de datos MySQ
    - Status.
    - Orders.
    - Orderdetail.
-Algunos datos importantes de la Base de datos:
+### Algunos datos importantes de la Base de datos:
 - Roles:
 Adminsitrador.
 Cliente.
