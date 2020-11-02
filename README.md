@@ -22,7 +22,7 @@ git clone https://github.com/annyj211/DelilahResto.git
 
 Bajar el archivo delilahresto.sql y ejecutarlo en el motor de base de datos MySQL Workbench. 
 - La base de datos tiene 7 tablas para su funcionamiento:
-Paymentmethod.
+   - Paymentmethod.
 Product.
 Role.
 User.
