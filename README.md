@@ -31,20 +31,20 @@ Bajar el archivo delilahresto.sql y ejecutarlo en el motor de base de datos MySQ
    - Orderdetail.
 ### Algunos datos importantes de la Base de datos:
 - Roles:
-Adminsitrador.
-Cliente.
+  - Administrador.
+  - Cliente.
 - Estados:
-Nuevo.
-Confirmado.
-Preparando.
-Enviando.
-Entregado.
-Cancelado.
+    - Nuevo.
+    - Confirmado.
+    - Preparando.
+    - Enviando.
+    - Entregado.
+    - Cancelado.
 - FormaDePagos:
-Efectivo.
-Tarjeta Debito.
-Tarjeta Credito.
-Bonos Sodexo.
+    - Efectivo.
+    - Tarjeta Debito.
+    - Tarjeta Credito.
+    - Bonos Sodexo.
 
 ## Instalación
 
