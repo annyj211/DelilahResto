@@ -72,308 +72,315 @@ node server.js
        
 ## End points
 
-- Login http://localhost:3000/users/signin
-- Orders admin http://localhost:3000/methodpay
-- Productos http://localhost:3000/products/
 - Usuario http://localhost:3000/users/
+- Login http://localhost:3000/users/signin
+- Productos http://localhost:3000/products/
+- Orders admin http://localhost:3000/methodpay
 - Ordenes usuarios http://localhost:3000/orders/2
 - Estados http://localhost:3000/status/
 - Metodos de pago http://localhost:3000/methodpay
 
-## Postman
+### Usuarios
+#### Crear un usuario
 
-En la ruta Postman se encuentra la colección de peticiones para consumir los servicios del proyecto, hay 4 carpetas Products,Users,Orders,Others.
-
-
-```
-Token de prueba:
--Administrador: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlciI6ImFubnlqMjExIiwiZW1haWwiOiJhbm55Lmhlcm5hbmRlejIxMUBnbWFpbC5jb20iLCJyb2wiOjEsImlhdCI6MTYwMzQ2ODczMX0.1kvkWfZZpuSH_kUDzT2Ci6K9R7TsB6vfpsgpD08q0c0
--Usuario: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlciI6IlNlcmdpb0JKIiwiZW1haWwiOiJzbmpiMDFAZ21haWwuY29tIiwicm9sIjoyLCJpYXQiOjE2MDM2NzEzNjF9.0wuzAzzVXoJ4kuu6yhF1HYSnNS-NciX6JbP3lo4d6Qk
-```
-### Users
-#### Create an user
-To create an user you just need a body
-###### Method:
+###### Metodo:
 ```
 ###### POST
 ```
 ###### URL
 ```
-127.0.0.1:3000/usuarios
+http://localhost:3000/users/
 ```
-###### Body structure:
+###### Estructura del Body:
 
 ```
 {
-    "user": "andres23f3",
-    "name": "camilo valbuena4",
-    "email": "camilo@gmail.com",
-    "phone": "31934824010",
-    "address": "DG 59 11 A 90",
-    "password": "camilo1234"
+        "username":"Prueba15",
+        "fullname":"Usuario de prueba 15",
+        "email":"prueba15@gmail.com",
+        "phone":"3168998765",
+        "address":"Calle 3 con 4",
+        "password":"654321",
+        "roleid":"2"
 }
 ```
 #### Login
-One of the main endpoints is the login. It allows you to obtain a json web token to implemen in the majority of the other endpoints. 
-It will not work if you enter password, user or email incorrectly. In this case `user` property can be both "email" or "user" values.
-###### Method:
+El login es uno de los principales endpoints. El login permite obtener el json web token (JWT) el cual se debe usar en los demas endpoints.
+Se puede usar en el user el correo o el nombre de usuario para el logueo.
+###### Metodo:
 ```
 ###### POST
 ```
 ###### URL
 ```
-127.0.0.1:3000/usuarios
+http://localhost:3000/users/signin
 ```
-###### Body structure:
+###### Estructura del Body:
 
 ```
 {
-    "user": "camilov",
-    "password": "camilo1234"
+        "user":"anny.hernandez211@gmail.com",
+        "pass":"12345"
 }
 ```
 OR
 ```
 {
-    "user": "milo@gmail.com",
-    "password": "camilo1234"
+        "user":"SergioBJ",
+        "pass":"56789"
 }
 ```
-
-#### Update user by ID
-You need to provide a valid user ID and proper JWT to be able to update an user. Either if you are an admin or the user that is logged in you will be able to perform this operation.
-##### Method
+#### Modificar un usuario por su username
+Para modificar un usuario se debe tener un JWT de admin valido.
+##### Metodo:
 ```
 PUT
 ```
 
 ##### URL
 ```
-127.0.0.1:3000/usuarios/1
+http://localhost:3000/users/Prueba5
 ```
-##### Body structure:
+##### Estructura del Body:
 
 ```
 {
-    "user": "andres23f3",
-    "name": "camilo valbuena4",
-    "email": "milov@gmaile.com",
-    "phone": "31934824010",
-    "address": "DG 59 11 A 90",
-    "password": "camilo1234"
+        "username":"Prueba5",
+        "fullname":"Usuario de prueba editado 5",
+        "email":"pruebaditado5@gmail.com",
+        "phone":"3168998789",
+        "address":"Calle 5 con 5 editado",
+        "password":"654321",
+        "roleid":"2"
 }
 ```
-#### Get all registered users
-Token must be from an admin.
-##### Method
+#### Ver todos los usuarios registrados
+Para visualizar todos los usuarios se debe tener un JWT de admin valido.
+##### Metodo:
 ```
 GET
 ```
 ##### URL
 ```
-127.0.0.1:3000/usuarios
+http://localhost:3000/users/
 ```
-#### Delete User by ID
-Only an admin can delete an user
+#### Eliminar usuario por Username
+Para eliminar algun usuario se debe tener un JWT de admin valido.
 
-##### Method
+##### Metodo:
 ```
 DELETE
 ```
 ##### URL
-1 indicates user ID value
+Prueba6 indicar el username de el usuario que se desea eliminar.
 ```
-127.0.0.1:3000/usuarios/1
+http://localhost:3000/users/Prueba6
 ```
-#### Get User by ID
-Only an admin or an logged user whose ID is equal to the id parameter used in the URL can perform this action.
+#### Ver datos de usuario por username
+Para visualizar datos de un usuario por username se debe tener un JWT de admin valido.
 
-##### Method
+##### Metodo:
 ```
 GET
 ```
 ##### URL
-1 indicates user ID value
+SergioBJ indicar el username a verificar.
 ```
-127.0.0.1:3000/usuarios/1
+http://localhost:3000/users/SergioBJ
 ```
-
-### Products
-#### Create a product
-To create a product you just need a body
-###### Method:
+### Productos
+#### Crear un producto
+Para crear un producto se debe enviar la estructura del body.
+###### Metodo:
 ```
  POST
 ```
 ###### URL
 ```
-127.0.0.1:3000/productos
+http://localhost:3000/products/
 ```
-###### Body structure:
-"cantidad" is just a representative value with no particular utility
+###### Estructura del Body:
+La informacion que debe enviarse es el nombre del producto, la descripcion,su precio y la URL de la imagen que representa el producto.
 ```
 {
-    "nombreProducto": "BandejaPaisa",
-    "precio": "315",
-    "cantidad": "48"
+        "name":"prueba sencilla",
+        "description":"Hamburguesa sencilla con carne anchera, queso, tomate, cebolla, lechuga y salsas",
+        "price":"10000",
+        "url":"https://www.google.de/url?sa=i&url=https%3A%2F%2Fwww.hogar.mapfre.es%2Fcocina%2Frecetas%2Fcarnes%2Fhamburguesa-sencilla%2F&psig=AOvVaw2Tm85Y8BsVSeKRtmBwWqyl&ust=1600744284111000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKDt_aaj-esCFQAAAAAdAAAAABAS"
 }
 ```  
 
-#### Update product by ID
-You need to provide a proper JWT to be able to update an product. Only if you are an admin you will be able to perform this operation.
-##### Method
+#### Modificar un producto por su ID
+Para eliminar algun usuario se debe tener un JWT de admin valido.
+##### Metodo:
 ```
 PUT
 ```
 ##### URL
-Number 1 indicate the value of product ID, you can use any value to get any other product
+3 es el id del producto que se desea modificar.
 ```
-127.0.0.1:3000/productos/1
+http://localhost:3000/products/3
 ```
-##### Body structure:
+##### Estructura del Body:
 
 ```
 {
-    "nombreProducto": "BandejaPaisa",
-    "precio": "315",
-    "cantidad": "8"
+        "name":"Hamburguesa sencilla",
+        "description":"Hamburguesa sencilla con carne ranchera, queso, tomate, cebolla, lechuga y salsas",
+        "price": "9800"
+        
 }
 ```
-#### Get all products
-If an admmin or an user are logged you can get all list of products
-##### Method
+#### Ver todos los productos
+Es posible visualizar todos los productos si es un administrador o un cliente.
+##### Metodo:
 ```
 GET
 ```
 ##### URL
 ```
-127.0.0.1:3000/products
+http://localhost:3000/products/
 ```
-#### Delete Product by ID
-Only an admin can delete a product
+#### Eliminar un producto por su ID
+Solo los administradores pueden eliminar prodcutos.
 
-##### Method
+##### Metodo:
 ```
 DELETE
 ```
 ##### URL
-1 indicates user ID value
+4 es el indentificador del producto que se quiere eliminar.
 ```
-127.0.0.1:3000/productos/1
+http://localhost:3000/products/4
 ```
-#### Get Product by ID
-Only a logged user can perform this action.
+#### Ver informacion de un prodcuto por su ID
+Para visualizar la informacion es necesario estar logueado y tener un JWT valido.
 
-##### Method
+##### Metodo:
 ```
 GET
 ```
 ##### URL
-1 indicates product ID value
+3 indica el ID del producto que se desea consultar.
 ```
-127.0.0.1:3000/productos/1
+http://localhost:3000/products/3
 ```
 
-### Orders
+### Ordenes
 
-#### Create an Order
-To create an order you just need a body
-###### Method:
+#### Crear una orden
+Para crear una orden se debe enviar la informacion en el body
+###### Metodo:
 ```
  POST
 ```
 ###### URL
 ```
-127.0.0.1:3000/ordenes
+http://localhost:3000/orders/
 ```
-###### Body structure:
-"payment" can be any value, "products" is an array that has all products IDs selected in the order, and those IDs can be repeated, address is a string.
-All this three values are required.
+###### Estructura del Body:
+Se debe enviar los id del usuario, medio de pago y en el detalle de la orden se debe enviar la informacion de los productos asociados a la orden.
 ```
 {
-    "payment":"CASH",
-    "products": [1,4,4,6,7,1],
-    "address":"CALLE FALSA 123"
+    "iduser":"2",
+    "idpayment":"2",
+    "detail":
+    [
+        {
+            "idproduct":"3", 
+            "name":"Hamburguesa Sencilla",
+            "price":"7000", 
+            "quantity":"2"
+        },
+        {
+            "idproduct":"4", 
+            "name":"Sandwich cubano",
+            "price":"12000", 
+            "quantity":"1"
+        }
+    ]
 }
 ```  
-#### Update order by ID
-Only if you are an admin you will be able to perform this operation.
-##### Method
+#### Modificar el estado de la orden 
+Solo es posible modificar el estado de la orden si el JWT es de un administrador.
+##### Metodo:
 ```
 PUT
 ```
 ##### URL
-Number 1 indicates the value of order ID, you can use any value to get any other order
 ```
-127.0.0.1:3000/ordenes/1
+http://localhost:3000/orders/
 ```
-##### Body structure:
+##### Estructura del Body:
 
 ```
 {
-    "payment":"CASH",
-    "products": [1,4,4,6],
-    "address":"CALLE FALSA 123",
-    "state" : "USADO"
+        "idorder":"1",
+        "idstatus":"3"
 }
 ```
-#### Get all orders
-If an admmin is logged in you can get all list of orders
-##### Method
+#### Ver todas las ordenes
+Solo es posible ver todas las ordenes si el JWT es de un administrador.
+##### Metodo:
 ```
 GET
 ```
 ##### URL
 ```
-127.0.0.1:3000/ordenes
+http://localhost:3000/orders/
 ```
 #### Delete Order by ID
-Either an admin or user whose order ID corresponds with Id parameter in URL can perform this operation
+Solo un administrador puede eliminar las ordenes.
 
-##### Method
+##### Metodo:
 ```
 DELETE
 ```
 ##### URL
-1 indicates order ID value
+8 inidica el Id de la orden que se desea eliminar
 ```
-127.0.0.1:3000/ordenes/1
+http://localhost:3000/orders/8/
 ```
-#### Get Order by ID
-Either an admin or user whose order ID corresponds with Id parameter in URL can perform this operation
+#### Ver informacion de la orden por ID
+Pder visualizar la inforamacion de la orden por numero de ID.
 
-##### Method
+##### Metodo:
 ```
 GET
 ```
 ##### URL
-1 indicates product ID value
+2 es el indicador del ID de la orden que se desea visualizar.
 ```
-127.0.0.1:3000/ordenes/1
+http://localhost:3000/orders/2
 ```
 
-#### Get Order by User
-Either an admin or user whose order ID corresponds with Id parameter in URL can perform this operation
+#### Ver todos los estados que puede tener una orden 
+Consultar todos los estados que puede llegar a tener una orden
 
-##### Method
+##### Metodo:
 ```
 GET
 ```
 ##### URL
-1 indicates product ID value
 ```
-127.0.0.1:3000/ordenes/usuarios/1
+http://localhost:3000/status/
 ```
-#### Get Products by Order ID
-Either an admin or user whose order ID corresponds with Id parameter in URL can perform this operation
+#### Ver los metodos de pagos existentes.
+Consultar todos los metodos de pagos existentes
 
-##### Method
+##### Metodo:
 ```
 GET
 ```
 ##### URL
-1 indicates product ID value
 ```
-127.0.0.1:3000/ordenes/1/productos
+http://localhost:3000/methodpay
 ```
+## Postman
 
+En la ruta Postman se encuentra la colección de peticiones para consumir los servicios del proyecto, hay 4 carpetas Products,Users,Orders,Others; en cada carpeta hay request correspondientes para realizar las pruebas. A continuacion dejo 2 token que son posibles usar.
+```
+Token de prueba:
+-Administrador: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlciI6ImFubnlqMjExIiwiZW1haWwiOiJhbm55Lmhlcm5hbmRlejIxMUBnbWFpbC5jb20iLCJyb2wiOjEsImlhdCI6MTYwMzQ2ODczMX0.1kvkWfZZpuSH_kUDzT2Ci6K9R7TsB6vfpsgpD08q0c0
+-Usuario: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlciI6IlNlcmdpb0JKIiwiZW1haWwiOiJzbmpiMDFAZ21haWwuY29tIiwicm9sIjoyLCJpYXQiOjE2MDM2NzEzNjF9.0wuzAzzVXoJ4kuu6yhF1HYSnNS-NciX6JbP3lo4d6Qk
+```
