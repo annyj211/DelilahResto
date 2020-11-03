@@ -14,9 +14,9 @@ server.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
-//Conexion a la BD
+
 let db = new Sequelize ( //db database o base de datos
-    "mysql://root:220713@localhost:3306/delilahresto" //se crea la cadena de conexion
+    "mysql://root:220713@localhost:3306/delilahresto" //se creo la cadena de conexion
 );
 
 async function querySelector(query, selectQ = false, replacements = {}) {
@@ -39,19 +39,6 @@ async function querySelector(query, selectQ = false, replacements = {}) {
     }
 
 
-}
-//middelware para validar el logueo del usuario
-function authenticateUser (req, res, next) {
-    try {
-        const token = req.headers.authorization.split(' ')[1];
-        const checkToken = jwt.verify(token, 'annyj211');
-        if (checkToken) {
-            req.usuario = checkToken;
-            return next();
-        }
-    } catch (err) {
-        res.json({ error: 'Existe un error al validar usuario' });
-    }
 }
 
 //Funcion para generar el token 
@@ -138,7 +125,7 @@ async function login(req, res) {
     }
 }
 // Endpoint para loguear un usuario
-server.post("/users/signin", login);
+server.post('/users/signin', login);
 
 //middelware para validar que sea un administrador
 function validateAdmin (req, res, next){
@@ -308,7 +295,7 @@ server.delete("/users/:username",verifyToken,validateAdmin,(req,res,next)=>{
 });
 
 //Endpoint para traer la informacion de la tabla Producto BD 
-server.get("/products",(req,res,next)=>{
+server.get("/products",verifyToken,(req,res,next)=>{
     db.query('select * from product;', {type: Sequelize.QueryTypes.SELECT})
     .then((users)=>{
         res.json(users)
@@ -361,7 +348,7 @@ server.post("/products/",verifyToken,validateAdmin,validateProduct,(req,res,next
     })
 });
 //Consultar informacion de un producto por ID 
-server.get("/products/:idproduct",verifyToken,validateAdmin,(req,res,next)=>{
+server.get("/products/:idproduct",verifyToken,(req,res,next)=>{
     let id= req.params.idproduct; //Traer el DNI del parametro que esta recibiendo 
     db.query('select p.name,p.description,p.price,p.url from product as p where idproduct=:idSeguro;',
     {
@@ -460,7 +447,7 @@ function validateProductsOrders (req, res, next){
     next();
 }
 // Endpoint para insertar ordenes
-server.post("/orders", verifyToken,validateAdmin, validateOrders, validateProductsOrders, async(req, res) => {
+server.post("/orders", verifyToken,validateOrders, validateProductsOrders, async(req, res) => {
 
     try{
         let idUsuario = req.body.iduser;
@@ -653,6 +640,8 @@ server.get ("/methodpay",verifyToken,validateAdmin,(req, res, next)=>{
         res.json({message: error})
     })
 })
+
+
 
 //Codigo para servidor express y conexion a BD 
 server.listen (3000, ()=>{
