@@ -378,7 +378,7 @@ http://localhost:3000/methodpay
 ```
 ## Postman
 
-En la ruta Postman se encuentra la colección de peticiones para consumir los servicios del proyecto, hay 4 carpetas Products,Users,Orders,Others; en cada carpeta hay request correspondientes para realizar las pruebas. A continuacion dejo 2 token que son posibles usar.
+En la ruta Postman se encuentra la colección de peticiones para consumir los servicios del proyecto, hay 4 carpetas Products, Users, Orders, Others; en cada carpeta hay request correspondientes para realizar las pruebas. A continuacion dejo 2 token que son posibles usar.
 ```
 Token de prueba:
 -Administrador: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlciI6ImFubnlqMjExIiwiZW1haWwiOiJhbm55Lmhlcm5hbmRlejIxMUBnbWFpbC5jb20iLCJyb2wiOjEsImlhdCI6MTYwMzQ2ODczMX0.1kvkWfZZpuSH_kUDzT2Ci6K9R7TsB6vfpsgpD08q0c0
