@@ -22,13 +22,13 @@ git clone https://github.com/annyj211/DelilahResto.git
 
 Bajar el archivo delilahresto.sql y ejecutarlo en el motor de base de datos MySQL Workbench. 
 - La base de datos tiene 7 tablas para su funcionamiento:
-   - Paymentmethod.
-   - Product.
-   - Role.
-   - User.
-   - Status.
-   - Orders.
-   - Orderdetail.
+   - Paymentmethod: Metodos de pago.
+   - Product: Productos disponibles.
+   - Role: Roles que puede tener un usuario.
+   - User: Usuarios que se encuentran creados.
+   - Status: Estados que puede tener una orden.
+   - Orders: Ordenes creadas.
+   - Orderdetail: Detalle de las ordenes que hay creadas.
 ### Algunos datos importantes de la Base de datos:
 - Roles:
   - Administrador.
@@ -353,6 +353,7 @@ GET
 ```
 http://localhost:3000/orders/2
 ```
+### Otros
 
 #### Ver todos los estados que puede tener una orden 
 Consultar todos los estados que puede llegar a tener una orden
